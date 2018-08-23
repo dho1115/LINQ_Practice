@@ -11,52 +11,15 @@ using System;
 namespace Linq_Practice.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180819223257_HotelLocationII")]
+    partial class HotelLocationII
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Linq_Practice.Models.Agents.AgentInfo", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ImagePath");
-
-                    b.Property<string>("email");
-
-                    b.Property<string>("name");
-
-                    b.HasKey("id");
-
-                    b.ToTable("AgentInfo");
-                });
-
-            modelBuilder.Entity("Linq_Practice.Models.Agents.bid", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("AgentInfoid");
-
-                    b.Property<int>("BidAmount");
-
-                    b.Property<DateTime?>("DatePosted");
-
-                    b.Property<string>("email");
-
-                    b.Property<double>("phone");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("AgentInfoid");
-
-                    b.ToTable("bid");
-                });
 
             modelBuilder.Entity("Linq_Practice.Models.ApplicationUser", b =>
                 {
@@ -124,7 +87,7 @@ namespace Linq_Practice.Data.Migrations
 
                     b.HasIndex("Locationid");
 
-                    b.ToTable("hotels");
+                    b.ToTable("hotel");
                 });
 
             modelBuilder.Entity("Linq_Practice.Models.location", b =>
@@ -138,7 +101,7 @@ namespace Linq_Practice.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("locations");
+                    b.ToTable("location");
                 });
 
             modelBuilder.Entity("Linq_Practice.Models.person", b =>
@@ -265,13 +228,6 @@ namespace Linq_Practice.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Linq_Practice.Models.Agents.bid", b =>
-                {
-                    b.HasOne("Linq_Practice.Models.Agents.AgentInfo", "AgentInfo")
-                        .WithMany()
-                        .HasForeignKey("AgentInfoid");
                 });
 
             modelBuilder.Entity("Linq_Practice.Models.hotel", b =>

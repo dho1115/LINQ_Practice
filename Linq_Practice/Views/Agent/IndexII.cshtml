@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Linq_Practice.Models.Agents.bid>
+
+
+@{
+    ViewData["Title"] = "IndexII";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bid Index</h2>
+
+@foreach (var item in Model)
+{   
+    <h1>@item.DatePosted</h1>
+    <h1>AGENT NAME: @item.AgentInfo.name</h1>
+    <h3>AGENT EMAIL: @item.AgentInfo.email</h3>
+    <h3>BID: @item.BidAmount</h3>
+    <h3><img src="@item.AgentInfo.ImagePath" /></h3>
+}
+
+

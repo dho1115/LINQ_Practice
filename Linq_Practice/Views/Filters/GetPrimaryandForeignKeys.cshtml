@@ -1,0 +1,18 @@
+﻿
+
+@model IEnumerable<hotel>
+
+@{
+    ViewData["Title"] = "GetPrimaryandForeignKeys";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetPrimaryandForeignKeys</h2>
+
+@foreach (var item in Model)
+{
+    <h1>HOTEL KEY: @item.name</h1>
+    <h1>BUFFET: @item.buffet</h1>
+    <h1>LOCATION: @item.Location</h1>
+}
+
